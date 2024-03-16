@@ -14,16 +14,14 @@ def generate_matrix(size):
 
 def write_matrix_to_file(matrix, filename):
     output_path = "matrixes/"
-
-    file = open(output_path+filename, "w")
-    file.write(str(matrix))
-    file.close()
+    matrix_numpy = np.array(matrix)
+    matrix_numpy.astype("double").tofile(output_path+filename)
 
 def main():
 
     print("Generating matrixes...")
 
-    matrix_sizes = [2**n for n in range(5,6)]
+    matrix_sizes = [2**n for n in range(2,12)]
 
     for ms in matrix_sizes:
         print("Generating matrix with size", ms)
