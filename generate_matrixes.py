@@ -11,7 +11,13 @@ def generate_matrix(size):
         matrix.append(row)
 
     return matrix
-    
+
+def write_matrix_to_file(matrix, filename):
+    output_path = "matrixes/"
+
+    file = open(output_path+filename, "w")
+    file.write(str(matrix))
+    file.close()
 
 def main():
 
@@ -24,6 +30,10 @@ def main():
         matrix_a = generate_matrix(ms)
         matrix_b = generate_matrix(ms)
         matrix_c = np.matmul(matrix_a, matrix_b)
+
+        write_matrix_to_file(matrix_a, "matrix-a-"+str(ms))
+        write_matrix_to_file(matrix_b, "matrix-b-"+str(ms))
+        write_matrix_to_file(matrix_c, "matrix-c-"+str(ms))
 
     print("Done")
 
