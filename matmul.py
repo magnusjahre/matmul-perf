@@ -18,14 +18,21 @@ def check_correctness(reference, result, size):
                 print("Error:", i, j, reference[i][j], result[i][j])
                 assert False
 
+def dump_matrix(matrix, size):
+    print("Dumping matrix...")
+    for i in range(size):
+        for j in range(size):
+            print(i,j,matrix[i][j])
+    print("Done.")
+
 def main():
     print("Naive matrix multiplication in Python")
-    matrix_size = 256
+    matrix_size = 4
 
     matrix_a = read_matrix(get_matrix_fname("a", matrix_size), matrix_size)
     matrix_b = read_matrix(get_matrix_fname("b", matrix_size), matrix_size)
     matrix_c = read_matrix(get_matrix_fname("c", matrix_size), matrix_size)
-
+    
     matrix_res = [[0 for j in range(matrix_size)] for i in range(matrix_size)]
 
     print("Initialization complete, starting timer...")
